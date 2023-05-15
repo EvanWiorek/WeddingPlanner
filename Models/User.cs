@@ -9,15 +9,15 @@ public class User
 {
   [Key]
   public int UserId { get; set; }
-  [Required]
+  [Required(ErrorMessage = "First name is required.")]
   public string FirstName { get; set; }
-  [Required]
+  [Required(ErrorMessage = "Last name is required.")]
   public string LastName { get; set; }
-  [Required]
+  [Required(ErrorMessage = "Email is required.")]
   [EmailAddress]
   [UniqueEmail]
   public string Email { get; set; }
-  [Required]
+  [Required(ErrorMessage = "First name is required.")]
   [DataType(DataType.Password)]
   [MinLength(8, ErrorMessage = "Password must be at least 8 characters")]
   public string Password { get; set; }

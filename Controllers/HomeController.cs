@@ -4,6 +4,7 @@ using WeddingPlanner.Models;
 using Microsoft.EntityFrameworkCore;
 namespace WeddingPlanner.Controllers;
 
+[SessionCheck]
 public class HomeController : Controller
 {
   private readonly ILogger<HomeController> _logger;
@@ -29,6 +30,7 @@ public class HomeController : Controller
     return View();
   }
 
+  [SessionCheck]
   [HttpPost("weddings/create")]
   public IActionResult CreateWedding(Wedding newWedding)
   {
