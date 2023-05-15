@@ -1,0 +1,44 @@
+@{
+    ViewData["Title"] = "Plan a Wedding";
+}
+
+@model Wedding
+
+<div class="card col-7 mt-4 m-auto">
+  <div class="card-header">
+    <h2>Plan a Wedding</h2>
+  </div>
+  <div class="card-body">
+    <form asp-action="CreateWedding" asp-controller="Home" method="post">
+
+      <div class="form-floating">
+        <input asp-for="WedderOne" class="form-control" placeholder="Wedder One:">
+        <label asp-for="WedderOne">Wedder One:</label>
+        <span asp-validation-for="WedderOne" class="validation-text"></span>
+      </div>
+      
+      <div class="form-floating mt-3">
+        <input asp-for="WedderTwo" class="form-control" placeholder="Wedder Two:">
+        <label asp-for="WedderTwo">Wedder Two:</label>
+        <span asp-validation-for="WedderTwo" class="validation-text"></span>
+      </div>
+      
+      <div class="form-floating mt-3">
+        <input asp-for="WeddingDate" class="form-control" placeholder="Date of Wedding:" format="dd-MMM-yy">
+        <label asp-for="WeddingDate">Date of Wedding:</label>
+        <span asp-validation-for="WeddingDate" class="validation-text"></span>
+      </div>
+
+      <div class="form-floating mt-3">
+        <input asp-for="Address" class="form-control" placeholder="Address of Wedding:">
+        <label asp-for="Address">Address of Wedding:</label>
+        <span asp-validation-for="Address" class="validation-text"></span>
+      </div>
+
+      <input type="hidden" asp-for="UserId" value="@Context.Session.GetInt32("UserId")">
+      
+      <div class="m-auto d-flex justify-content-center"><input type="submit" value="+ Create Wedding" class="btn btn-primary mt-3"></div>
+
+    </form>
+  </div>
+</div>

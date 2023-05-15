@@ -1,0 +1,26 @@
+@model Wedding
+
+@{
+  ViewData["Title"] = "@Model.WedderOne & @Model.WedderTwo's Wedding";
+}
+
+
+<div class="card col-7 mt-4 m-auto">
+  <div class="card-header text-center">
+    <h2>@Model.WedderOne & @Model.WedderTwo's Wedding</h2>
+  </div>
+  <div class="card-body">
+    <h5>Date of wedding: @Model.WeddingDate</h5>
+    <h5>Guest list:</h5>
+    <div class="card">
+      <div class="card-body">
+        @{
+          foreach(RSVP? rsvp in Model.PeopleGoing)
+          {
+            <p class="m-0">@rsvp.User.FirstName @rsvp.User.LastName</p>
+          }
+        }
+      </div>
+    </div>
+  </div>
+</div>

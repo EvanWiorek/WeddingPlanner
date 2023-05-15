@@ -1,0 +1,23 @@
+<div class="navbar-body border-bottom box-shadow">
+  <div class="navbar-content p-3">
+    <div class="top text-center">
+      <h1 class="display-5">Wedding Planner</h1>
+    </div>
+    <div class="bottom d-flex justify-content-between col-9 m-auto align-items-center">
+      <div class="left-side">
+        <h2>Welcome, @Context.Session.GetString("FirstName")!</h2>
+      </div>
+      <div class="right-side d-flex gap-3">
+        <a class="@(ViewData["Title"]?.ToString() == "Home" ? "active" : "navlink")" asp-controller="Home"
+          asp-action="Dashboard">Home</a>
+        <p class="navlink">|</p>
+        <a class="@(ViewData["Title"]?.ToString() == "Plan a Wedding" ? "active" : "navlink")" asp-controller="Home"
+          asp-action="WeddingForm">Plan a Wedding</a>
+          <br>
+        <form asp-action="Logout" asp-controller="LogReg" method="post">
+          <input type="submit" value="Logout" class="btn btn-outline-danger"></input>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
